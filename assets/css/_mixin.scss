@@ -1,0 +1,62 @@
+/*--------------------------------------------------------
+*     ■一部Reference
+*     https://zenn.dev/tak_dcxi/articles/2cc1828e9c1fe2
+-------------------------------------------------------------------*/
+/*----------------
+*   flex
+-------------------*/
+@mixin flex($content, $align) {
+  display: flex;
+  justify-content: $content;
+  align-items: $align;
+}
+
+/*----------------
+*   object-fit
+-------------------*/
+@mixin fit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*--------------------------------------------------------
+*   px→vw
+*   - 第1引数に指定したいピクセル値を指定
+*   - 第2引数に基準となる画面幅（デザインカンプの横幅）を指定
+---------------------------------------------------------*/
+@function vw($px, $base: 375px) {
+  $value: $px;
+
+  // 単位がpx以外の場合は警告を出してそのまま返す
+  @if (unit($px) != "px") {
+    @warn 'vw()の引数にpx以外の値を指定しても計算できません';
+    @return $value;
+  }
+
+  $value: (strip-unit($px) / strip-unit($base)) * 100vw;
+
+  @return $value;
+}
+
+/*------------------------------------------------
+*   スクリーンリーダー向けの隠しコンテンツ
+---------------------------------------------------*/
+@mixin visually-hidden() {
+  // a11y-css-resetから引用
+  // https://github.com/mike-engel/a11y-css-reset
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}

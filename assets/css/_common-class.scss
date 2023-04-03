@@ -1,0 +1,106 @@
+._pc {
+  @include mq(md) {
+    display: none !important;
+  }
+}
+
+._sp {
+  display: none !important;
+  @include mq(md) {
+    display: block !important;
+  }
+}
+
+._show {
+  display: block !important;
+}
+
+._hide {
+  display: none !important;
+}
+
+._block {
+  display: block;
+}
+
+._bold {
+  font-weight: bold;
+}
+
+._inner-small {
+  max-width: 125.4rem;
+  margin: auto;
+  position: relative;
+  @include mq(md) {
+    padding: 0 1.6rem;
+  }
+}
+
+._inner-large {
+  padding: 0 2rem;
+  margin: auto;
+  @include mq(md) {
+    padding: 0 1.6rem;
+  }
+}
+
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+._fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+._fit-aspect {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.--green {
+  color: var(--main-color);
+}
+
+.--font-jp {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Arial, Meiryo, sans-serif !important;
+}
+
+.js-hide {
+  position: relative;
+  display: inline-block;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.js-show {
+  position: relative;
+  top: 10rem;
+}
+
+.js-show-lg {
+  display: inline-block;
+  position: relative;
+  transform: translateY(30rem) rotate(45deg);
+  @include mq(md) {
+    transform: translateY(10rem) rotate(45deg);
+  }
+}
+
+// .router-link-active,
+// .router-link-exact-active {
+//   color: var(--orange) !important;
+// }
